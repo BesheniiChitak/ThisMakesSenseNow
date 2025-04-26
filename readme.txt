@@ -1,1 +1,1 @@
-Minecraft plugin that makes minecraft make a little bit more sense
+A minecraft plugin that makes minecraft make a little bit more sense
