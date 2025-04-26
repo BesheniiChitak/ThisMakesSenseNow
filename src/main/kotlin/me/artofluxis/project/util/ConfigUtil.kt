@@ -3,13 +3,13 @@ package me.artofluxis.project.util
 import me.artofluxis.project.plugin
 import org.bukkit.Material
 
-val readMaterialLists = hashMapOf<String, List<Material>>()
+val readMaterialLists = hashMapOf<String, HashSet<Material>>()
 val readMaterialMaps = hashMapOf<String, HashMap<Material, Pair<Material, Int>>>()
 val readBooleans = hashMapOf<String, Boolean>()
 
-fun loadMaterialList(id: String): List<Material> {
+fun loadMaterialList(id: String): HashSet<Material> {
     if (id in readMaterialLists) return readMaterialLists[id]!!
-    else return plugin.config.getStringList(id).map { Material.valueOf(it) }.also { readMaterialLists[id] = it }
+    else return plugin.config.getStringList(id).map { Material.valueOf(it) }.toHashSet().also { readMaterialLists[id] = it }
 }
 
 fun loadBoolean(id: String): Boolean {

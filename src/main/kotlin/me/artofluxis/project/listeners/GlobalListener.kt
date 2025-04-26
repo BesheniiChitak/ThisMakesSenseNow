@@ -4,10 +4,6 @@ import me.artofluxis.project.util.loadBoolean
 import me.artofluxis.project.util.loadMaterialList
 import me.artofluxis.project.util.loadMaterialMap
 import me.artofluxis.project.util.runTaskLater
-import net.kyori.adventure.text.Component.text
-import net.minecraft.world.level.block.CauldronBlock
-import net.minecraft.world.level.block.LavaCauldronBlock
-import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.block.data.Levelled

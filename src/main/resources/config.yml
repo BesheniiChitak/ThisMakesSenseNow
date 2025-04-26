@@ -70,6 +70,7 @@ unflammable_items:
  - RESPAWN_ANCHOR
  - COMPASS
  - HOPPER
+ - HEAVY_WEIGHTED_PRESSURE_PLATE
 
 # if an item does burn and is in this list then it will turn into another item once the game tries to destroy it
 # if an item in this list has durability the result will be multiplied by current_durability/max_durability and rounded down, for example:
