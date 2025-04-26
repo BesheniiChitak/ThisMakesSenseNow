@@ -1,0 +1,125 @@
+# item format — item_id:amount (where amount is needed, otherwise just item_id)
+
+# while this is true breaking a lava or water cauldron will cause it to spill liquid
+liquids_from_cauldrons: true
+
+# if an item is in this list it can't be destroyed by fire and lava
+unflammable_items:
+ - IRON_INGOT
+ - IRON_NUGGET
+ - IRON_BLOCK
+ - IRON_BARS
+ - IRON_DOOR
+ - IRON_TRAPDOOR
+ - IRON_HELMET
+ - IRON_CHESTPLATE
+ - IRON_LEGGINGS
+ - IRON_BOOTS
+ - IRON_HORSE_ARMOR
+ - CHAIN
+ - CAULDRON
+ - CRIMSON_STEM
+ - CRIMSON_HYPHAE
+ - STRIPPED_CRIMSON_STEM
+ - STRIPPED_CRIMSON_HYPHAE
+ - CRIMSON_PLANKS
+ - CRIMSON_STAIRS
+ - CRIMSON_SLAB
+ - CRIMSON_FENCE
+ - CRIMSON_FENCE_GATE
+ - CRIMSON_DOOR
+ - CRIMSON_TRAPDOOR
+ - CRIMSON_PRESSURE_PLATE
+ - CRIMSON_BUTTON
+ - CRIMSON_SIGN
+ - CRIMSON_HANGING_SIGN
+ - WARPED_STEM
+ - WARPED_HYPHAE
+ - STRIPPED_WARPED_STEM
+ - STRIPPED_WARPED_HYPHAE
+ - WARPED_PLANKS
+ - WARPED_STAIRS
+ - WARPED_SLAB
+ - WARPED_FENCE
+ - WARPED_FENCE_GATE
+ - WARPED_DOOR
+ - WARPED_TRAPDOOR
+ - WARPED_PRESSURE_PLATE
+ - WARPED_BUTTON
+ - WARPED_SIGN
+ - WARPED_HANGING_SIGN
+ - BUCKET
+ - LAVA_BUCKET
+ - MINECART
+ - RAIL
+ - FLINT_AND_STEEL
+ - SHEARS
+ - ANVIL
+ - CHIPPED_ANVIL
+ - DAMAGED_ANVIL
+ - CHAINMAIL_BOOTS
+ - CHAINMAIL_LEGGINGS
+ - CHAINMAIL_CHESTPLATE
+ - CHAINMAIL_HELMET
+ - HOPPER_MINECART
+ - FURNACE_MINECART
+ - BEDROCK
+ - LANTERN
+ - SOUL_LANTERN
+ - OBSIDIAN
+ - RESPAWN_ANCHOR
+ - COMPASS
+ - HOPPER
+
+# if an item does burn and is in this list then it will turn into another item once the game tries to destroy it
+# if an item in this list has durability the result will be multiplied by current_durability/max_durability and rounded down, for example:
+# 1. burning a iron pickaxe with half of its durability will be 3 * 0.5 iron ingots which is 1.5 which is 1 when rounded down
+# 2. burning a iron shovel with half of its durability will be 1 * 0.5 iron ingots which is 0.5 which is 0 when rounded down, so it will drop nothing
+# (note that if the result is flammable it will be destroyed instantly)
+flammable_items:
+ - RAW_IRON to IRON_INGOT:1
+ - RAW_IRON_BLOCK to IRON_BLOCK:1
+ - DEEPSLATE_IRON_ORE to IRON_INGOT:1
+ - IRON_SHOVEL to IRON_INGOT:1
+ - IRON_AXE to IRON_INGOT:3
+ - IRON_PICKAXE to IRON_INGOT:3
+ - IRON_SWORD to IRON_INGOT:2
+ - IRON_HOE to IRON_INGOT:2
+ - SHIELD to IRON_INGOT:1
+ - PISTON to IRON_INGOT:1
+ - STICKY_PISTON to IRON_INGOT:1
+ - WATER_BUCKET to BUCKET:1
+ - COD_BUCKET to BUCKET:1    # guess where the fish goes
+ - SALMON_BUCKET to BUCKET:1
+ - TROPICAL_FISH_BUCKET to BUCKET:1
+ - PUFFERFISH_BUCKET to BUCKET:1
+ - AXOLOTL_BUCKET to BUCKET:1
+ - TADPOLE_BUCKET to BUCKET:1
+ - POWDER_SNOW_BUCKET to BUCKET:1
+ - MILK_BUCKET to BUCKET:1
+ - CHEST_MINECART to MINECART:1
+# by default these are the items that made at least some sense to me, open for suggestions
+# actually now that im thinking, handles of netherite tools don't burn, but uhhh yeah
+
+# items in this list can't be destroyed by explosions
+unexplodable_items:
+ - OBSIDIAN
+ - CRYING_OBSIDIAN
+ - ENCHANTING_TABLE
+ - NETHERITE_BLOCK
+ - BEDROCK
+ - RESPAWN_ANCHOR
+ - ENDER_CHEST
+
+# items in this list will explode when destroyed by fire or another explosion (it can cause a chain reaction)
+# explosion power is calculated with this formula: (log₁.₂(item_amount) / 5 + 1) * explosion_power
+# for example:
+# 1. 1 tnt will be (log₁.₂(1) / 5 + 1) * 4 which is (0 / 5 + 1) * 4 which is 4 (default tnt power)
+# 2. 2 tnt will be (log₁.₂(2) / 5 + 1) * 4 which is (3.801 / 5 + 1) * 4 which is 7.0408
+# 3. 64 tnt will be (log₁.₂(64) / 5 + 1) * 4 which is (22.8107 / 5 + 1) * 4 which is 22,24856 (one instant explosion equivalent to about 5.5 tnt's, can probably one-shot a player in iron armor, maybe even diamond)
+# 4. 64 end crystals will be (log₁.₂(64) / 5 + 1) * 6 which is (22.8107 / 5 + 1) * 6 which is 33,37284 (one instant explosion equivalent to about 8.3 tnt's)
+#explode_on_burn_or_explosion_items:
+# - TNT to 4
+# - TNT_MINECART to 4
+# - END_CRYSTAL to 6
+# ------------------------- THIS IS CURRENTLY NOT IMPLEMENTED AND REQUIRES FEEDBACK -------------------------
