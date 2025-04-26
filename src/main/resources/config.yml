@@ -98,7 +98,7 @@ flammable_items:
  - POWDER_SNOW_BUCKET to BUCKET:1
  - MILK_BUCKET to BUCKET:1
  - CHEST_MINECART to MINECART:1
-# by default these are the items that made at least some sense to me, open for suggestions
+# these are the items that made at least some sense to me, open for suggestions
 # actually now that im thinking, handles of netherite tools don't burn, but uhhh yeah
 
 # items in this list can't be destroyed by explosions
@@ -111,6 +111,7 @@ unexplodable_items:
  - RESPAWN_ANCHOR
  - ENDER_CHEST
 
+# ------------------ THIS IS CURRENTLY NOT IMPLEMENTED AND REQUIRES FEEDBACK ------------------
 # items in this list will explode when destroyed by fire or another explosion (it can cause a chain reaction)
 # explosion power is calculated with this formula: (log₁.₂(item_amount) / 5 + 1) * explosion_power
 # for example:
@@ -122,4 +123,4 @@ unexplodable_items:
 # - TNT to 4
 # - TNT_MINECART to 4
 # - END_CRYSTAL to 6
-# ------------------------- THIS IS CURRENTLY NOT IMPLEMENTED AND REQUIRES FEEDBACK -------------------------
+# ------------------ THIS IS CURRENTLY NOT IMPLEMENTED AND REQUIRES FEEDBACK ------------------
