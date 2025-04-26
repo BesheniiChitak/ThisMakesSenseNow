@@ -1,2 +1,1 @@
-    This Is Just Some RPG
-yeah this is just an rpg. not much here
+Minecraft plugin that makes minecraft make a little bit more sense
