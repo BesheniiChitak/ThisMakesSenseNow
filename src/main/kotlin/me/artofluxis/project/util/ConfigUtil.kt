@@ -8,18 +8,18 @@ val readMaterialMaps = hashMapOf<String, HashMap<Material, Pair<Material, Int>>>
 val readBooleans = hashMapOf<String, Boolean>()
 
 fun loadMaterialList(id: String): HashSet<Material> {
-    if (id in readMaterialLists) return readMaterialLists[id]!!
-    else return plugin.config.getStringList(id).map { Material.valueOf(it) }.toHashSet().also { readMaterialLists[id] = it }
+    return if (id in readMaterialLists) readMaterialLists[id]!!
+    else plugin.config.getStringList(id).map { Material.valueOf(it) }.toHashSet().also { readMaterialLists[id] = it }
 }
 
 fun loadBoolean(id: String): Boolean {
-    if (id in readBooleans) return readBooleans[id]!!
-    else return plugin.config.getBoolean(id)
+    return if (id in readBooleans) readBooleans[id]!!
+    else plugin.config.getBoolean(id)
 }
 
 fun loadMaterialMap(id: String): HashMap<Material, Pair<Material, Int>> {
-    if (id in readMaterialMaps) return readMaterialMaps[id]!!
-    else return HashMap(plugin.config.getStringList(id).associate { original ->
+    return if (id in readMaterialMaps) readMaterialMaps[id]!!
+    else HashMap(plugin.config.getStringList(id).associate { original ->
         original.split(" to ").let {
             val data = it[1].split(":")
             val amount = if (data.size != 1) data[1].toInt() else 1
