@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "me.artofluxis"
-version = "1.1"
+version = "1.2"
 description = "PaperMC Plugin in Kotlin"
 
 java {
