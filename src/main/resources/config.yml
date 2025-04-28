@@ -1,5 +1,7 @@
 # item format — item_id:amount (where amount is needed, otherwise just item_id)
 
+config_version: 1
+
 # while this is true breaking a lava or water cauldron will cause it to spill liquid
 liquids_from_cauldrons: true
 

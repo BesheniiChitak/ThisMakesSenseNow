@@ -46,7 +46,10 @@ object GlobalListener : Listener {
         if (entity is Item) {
             val itemStack = entity.itemStack
             val itemStackType = itemStack.type
-            if (event.cause == EntityDamageEvent.DamageCause.LAVA) {
+            if (event.cause in hashSetOf(
+                    EntityDamageEvent.DamageCause.FIRE,
+                    EntityDamageEvent.DamageCause.LAVA
+            )) {
                 if (itemStackType in loadMaterialList("unflammable_items")) {
                     event.isCancelled = true
                 }
