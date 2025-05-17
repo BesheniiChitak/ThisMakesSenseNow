@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "me.artofluxis"
-version = "1.2.1"
+version = "1.2.2"
 description = "PaperMC Plugin in Kotlin"
 
 java {
@@ -31,6 +31,19 @@ dependencies {
 
     paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
 }
+
+tasks.shadowJar {
+    archiveBaseName.set("ThisMakesSenseNow")
+    archiveClassifier.set("")
+    archiveVersion.set(project.version.toString())
+
+    relocate("kotlin", "me.artofluxis.shaded.kotlin")
+
+    mergeServiceFiles()
+
+    configurations = listOf(project.configurations.runtimeClasspath.get())
+}
+
 
 tasks {
     runServer { minecraftVersion("1.21.4") }
