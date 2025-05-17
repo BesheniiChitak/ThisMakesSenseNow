@@ -7,11 +7,11 @@ plugins {
 }
 
 group = "me.artofluxis"
-version = "1.2"
+version = "1.2.1"
 description = "PaperMC Plugin in Kotlin"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(23))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.MOJANG_PRODUCTION
